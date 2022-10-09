@@ -24,7 +24,7 @@ deprecated class FlaskResponseArgument extends HttpResponseTaintSink {
   FlaskResponseArgument() {
     exists(CallNode call |
       (
-        call.getFunction().pointsTo(theFlaskReponseClass())
+        call.getFunction().pointsTo(theFlaskResponseClass())
         or
         call.getFunction().pointsTo(Value::named("flask.make_response"))
       ) and
@@ -47,7 +47,7 @@ deprecated class FlaskResponseConfiguration extends TaintTracking::Configuration
   override predicate isSource(DataFlow::Node node, TaintKind kind) {
     kind instanceof FlaskResponseTaintKind and
     (
-      node.asCfgNode().(CallNode).getFunction().pointsTo(theFlaskReponseClass())
+      node.asCfgNode().(CallNode).getFunction().pointsTo(theFlaskResponseClass())
       or
       node.asCfgNode().(CallNode).getFunction().pointsTo(Value::named("flask.make_response"))
     )

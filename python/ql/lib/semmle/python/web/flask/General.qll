@@ -8,7 +8,7 @@ deprecated ClassValue theFlaskClass() { result = Value::named("flask.Flask") }
 /** Gets the flask MethodView class */
 deprecated ClassValue theFlaskMethodViewClass() { result = Value::named("flask.views.MethodView") }
 
-deprecated ClassValue theFlaskReponseClass() { result = Value::named("flask.Response") }
+deprecated ClassValue theFlaskResponseClass() { result = Value::named("flask.Response") }
 
 /**
  * Holds if `route` is routed to `func`
