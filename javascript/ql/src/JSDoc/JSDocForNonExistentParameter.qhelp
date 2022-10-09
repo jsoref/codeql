@@ -23,7 +23,7 @@ The parameter names should be corrected. If the documented parameter was removed
 <p>
 In the following example, the constructor <code>Message</code> has a JSDoc comment containing two
 <code>@param</code> tags, one documenting the parameter <code>title</code>, and one documenting a
-non-existent parameter <code>text</code>.
+nonexistent parameter <code>text</code>.
 </p>
 
 <sample src="examples/JSDocForNonExistentParameter.js" />

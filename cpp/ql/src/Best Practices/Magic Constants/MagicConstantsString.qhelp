@@ -20,7 +20,7 @@ update if the requirements change (for example, a protocol is updated).
 </li>
 </ol>
 
-<p>This rule finds magic strings for which there is no pre-existing named
+<p>This rule finds magic strings for which there is no preexisting named
 constant.</p>
 
 

@@ -39,7 +39,7 @@ because it equates <code>subdir/parent/..</code> with <code>subdir/</code>, but 
 when <code>subdir/parent</code> is a symbolic link.
 </p>
 <sample src="UnsafeUnzipSymlink.go" />
-<p>To fix this vulnerability, resolve pre-existing symbolic links before checking
+<p>To fix this vulnerability, resolve preexisting symbolic links before checking
 that the link's target is acceptable:
 </p>
 <sample src="UnsafeUnzipSymlinkGood.go" />
