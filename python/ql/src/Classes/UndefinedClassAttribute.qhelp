@@ -5,8 +5,8 @@
 
 
 <overview>
-<p>A non-existent attribute of <code>self</code> is accessed in a method.
-An attribute is treated as non-existent if it is not a class attribute
+<p>A nonexistent attribute of <code>self</code> is accessed in a method.
+An attribute is treated as nonexistent if it is not a class attribute
 and it is not set in any method of the class.
 This may result in an <code>AttributeError</code> at run time.
 

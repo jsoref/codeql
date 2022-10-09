@@ -5,7 +5,7 @@
 
 
 <overview>
-<p>A possibly non-existent attribute of <code>self</code> is accessed in a method.
+<p>A possibly nonexistent attribute of <code>self</code> is accessed in a method.
 The attribute is set in another method of the class, but may be uninitialized if the
 method that uses the attribute is called before the one that sets it.
 This may result in an <code>AttributeError</code> at run time.
