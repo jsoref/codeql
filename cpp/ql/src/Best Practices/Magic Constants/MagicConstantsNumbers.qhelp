@@ -20,7 +20,7 @@ update if the requirements change (for example, one more guest is permitted).
 </li>
 </ol>
 
-<p>This rule finds magic numbers for which there is no pre-existing named
+<p>This rule finds magic numbers for which there is no preexisting named
 constant (for example, the line marked (4) below).</p>
 
 </overview>
