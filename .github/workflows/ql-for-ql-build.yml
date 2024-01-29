@@ -10,8 +10,21 @@ env:
   CARGO_TERM_COLOR: always
 
 jobs:
+  choose-runner:
+    outputs:
+      runs-on:
+    runs-on: ubuntu-latest
+    steps:
+      - if: vars.use-large-runners-for-speed
+        run: |
+          echo "runner=ubuntu-latest-xl" >> $GITHUB_OUTPUT
+      - if: ${{ !vars.use-large-runners-for-speed }}
+        run: |
+          echo "runner=ubuntu-latest" >> $GITHUB_OUTPUT
+
   analyze:
-    runs-on: ubuntu-latest-xl
+    needs: choose-runner
+    runs-on: choose-runner.outputs.runner
     steps:
       ### Build the queries ###
       - uses: actions/checkout@v4

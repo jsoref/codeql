@@ -110,8 +110,21 @@ jobs:
             ruby/extractor/target/release/codeql-extractor-ruby
             ruby/extractor/target/release/codeql-extractor-ruby.exe
           retention-days: 1
+  choose-runner:
+    outputs:
+      runs-on:
+    runs-on: ubuntu-latest
+    steps:
+      - if: vars.use-large-runners-for-speed
+        run: |
+          echo "runner=ubuntu-latest-xl" >> $GITHUB_OUTPUT
+      - if: ${{ !vars.use-large-runners-for-speed }}
+        run: |
+          echo "runner=ubuntu-latest" >> $GITHUB_OUTPUT
+
   compile-queries:
-    runs-on: ubuntu-latest-xl
+    needs: choose-runner
+    runs-on: choose-runner.outputs.runner
     steps:
       - uses: actions/checkout@v4
       - name: Fetch CodeQL

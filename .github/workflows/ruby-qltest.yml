@@ -49,8 +49,22 @@ jobs:
            --dbscheme=ql/lib/ruby.dbscheme --target-dbscheme=downgrades/initial/ruby.dbscheme |
            xargs codeql execute upgrades testdb
           diff -q testdb/ruby.dbscheme downgrades/initial/ruby.dbscheme
+
+  choose-runner:
+    outputs:
+      runs-on:
+    runs-on: ubuntu-latest
+    steps:
+      - if: vars.use-large-runners-for-speed
+        run: |
+          echo "runner=ubuntu-latest-xl" >> $GITHUB_OUTPUT
+      - if: ${{ !vars.use-large-runners-for-speed }}
+        run: |
+          echo "runner=ubuntu-latest" >> $GITHUB_OUTPUT
+
   qltest:
-    runs-on: ubuntu-latest-xl
+    needs: choose-runner
+    runs-on: choose-runner.outputs.runner
     strategy:
       fail-fast: false
     steps:
