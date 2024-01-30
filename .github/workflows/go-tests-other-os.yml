@@ -1,12 +1,6 @@
 name: "Go: Run Tests - Other OS"
 on:
-  pull_request:
-    paths:
-      - "go/**"
-      - "!go/ql/**" # don't run other-os if only ql/ files changed
-      - .github/workflows/go-tests-other-os.yml
-      - .github/actions/**
-      - codeql-workspace.yml
+  push:
 
 env:
   GO_VERSION: '~1.21.0'
